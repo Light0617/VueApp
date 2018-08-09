@@ -16,9 +16,7 @@ yarn global add @vue/cli
 npm install --save-dev less-loader less
 npm install bootstrap --save
 yarn add bootstrap-vue
-yarn add @enrian/vue-pikaday
-yarn add moment 
-npm install pikaday
+#yarn add moment 
 ```
 
 ### Compiles and hot-reloads for development
@@ -45,4 +43,3 @@ yarn run lint
 - https://vuematerial.io/getting-started
 - https://vuetifyjs.com/en/getting-started/quick-start
 - https://bootstrap-vue.js.org/docs/components/table/
-- https://enrian.github.io/vue-pikaday/guide/installation.html#npm

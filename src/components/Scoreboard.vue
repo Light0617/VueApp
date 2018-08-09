@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-layout row wrap>
+        <v-layout row wrap justify-space-around>
             <v-flex xs3>
                 <v-card>
                     <v-card-text>
@@ -13,7 +13,7 @@
                     </v-card-text>
                 </v-card>
             </v-flex>
-            <v-flex xs8 offset-xs0 offset-lg1>
+            <v-flex xs8>
                 <v-card>
                     <v-card-text>
                         <Suites/>

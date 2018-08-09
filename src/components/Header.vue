@@ -1,21 +1,23 @@
 <template>
-    <div class="header navbar container-fluid" id = "header">
-        <md-button to="/home" class="navbar-header">
+    <v-layout row class="header">
+        <md-button to="/home" class="navbar-header navbar-text">
             <b>Lantern</b>
         </md-button>
-        <md-button to="/" class="navbar-content">
+        <md-button to="/" class="navbar-text">
             Main Page
         </md-button>
-        <md-button to="/scoreboard/tests-page" class="navbar-content">
+        <md-button to="/scoreboard/tests-page" class="navbar-text">
             All Test Runs
         </md-button>
-        <md-button to="/scoreboard/report-page" class="navbar-content">
+        <md-button to="/scoreboard/report-page" class="navbar-text">
             Report
         </md-button>
-        <md-button to="/scoreboard/report-page" class="navbar-right navbar-content">
+        <v-spacer/>
+        <md-button to="/scoreboard/report-page" class="navbar-right navbar-text">
             Link
         </md-button>
-    </div>
+        <md-button disabled="true"/>
+    </v-layout>
 </template>
 
 <script>
@@ -33,40 +35,18 @@
 
 <style scoped lang="scss">
     .header{
-
-    }
-
-
-    .navbar {
-        border: none;
-        font-size: 13px;
-        font-weight: 300;
         background-color: #c4e5ef;
-        border-radius: 0;
-        position: relative;
-        min-height: 60px;
-        margin-bottom: 21px;
-    }
-    .container-fluid {
-        margin-right: auto;
-        margin-left: auto;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    .navbar-header{
-        color: #ffffff;
-        float: left;
-        padding: 12px 15px;
-        font-size: 19px;
-        line-height: 21px;
-        height: 45px;
+        margin-bottom: 25px;
     }
 
-    .navbar-content{
+    .navbar-header{
+        font-size: 20px;
+        line-height: 21px;
+    }
+
+    .navbar-text{
         color: #ffffff;
         float: left;
-        padding: 12px 15px;
-        line-height: 21px;
         height: 45px;
     }
 
