@@ -1,0 +1,19 @@
+### IntelliJ ###
+## Directory-based project format
+.idea/*
+
+## File-based project format
+*.ipr
+*.iws
+*.iml
+
+## Additional for IntelliJ
+out/
+
+#node
+node_modules/
+
+### MAC hidden files ###
+.DS_Store
+
+
