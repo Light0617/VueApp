@@ -6,7 +6,7 @@
         <b-form-group id="formGroup"
                       :invalid-feedback="invalidInput"
                       :state="state">
-
+            <h3>GO</h3>
             <b-container>
                 <b-row>
                     <b-col sm="4"><label :for="value">value:</label></b-col>
@@ -142,13 +142,13 @@
     // let startDateSelected = '';
     // let endDateSelected = '';
     export default {
-        // props: ['search', value],
-        props: {
-            value: {
-                type: String,
-                default: ''
-            },
-        },
+        props: ['search', 'value'],
+        // props: {
+        //     value: {
+        //         type: String,
+        //         default: ''
+        //     },
+        // },
         computed: {
             state () {
                 return this.startDateSelected <= this.endDateSelected ? true : false;
@@ -169,8 +169,8 @@
         },
         data() {
             return {
-                value1: '',
-                search :  '',
+                // value1: '',
+                // search :  '',
                 projectSelected : 'All',
                 statusSelected : 'All',
                 quickSelected : 'All',
