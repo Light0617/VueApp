@@ -66,16 +66,69 @@
         </b-form-group>
         </form>
         <div>
+            <p>{{search}}</p>
+            <p>{{projectSelected}}</p>
+            <p>{{statusSelected}}</p>
+            <p>{{quickSelected}}</p>
+            <p>{{bugSelected}}</p>
+            <p>{{branchSelected}}</p>
+            <p>{{buildMaxSelected}}</p>
+            <p>{{buildMaxSelected}}</p>
             <p>{{startDateSelected}}</p>
             <p>{{endDateSelected}}</p>
-            <p>{{endDateSelected >= startDateSelected ? 'YES' : 'NO'}}</p>
+            <!--<p>{{filters.bugSelected}}</p>-->
+            <!--<p>{{filters.branchSelected}}</p>-->
+            <!--<p>{{filters.buildMaxSelected}}</p>-->
+            <!--<p>{{filters.buildMaxSelected}}</p>-->
+            <!--<p>{{filters.startDateSelected}}</p>-->
+            <!--<p>{{filters.endDateSelected}}</p>-->
         </div>
     </div>
 </template>
 
 <script>
+    const projectOptions = [
+            { value: 'All', text: 'All'},
+            { value: 'Ferrari', text: 'Ferrari'},
+            { value: 'Develop', text: 'Develop'},
+            { value: 'Evolution', text : 'Evolution'}
+        ];
+    const statusOptions = [
+            { value: 'All', text: 'All'},
+            { value: 'Pass', text: 'Pass'},
+            { value: 'Fail', text : 'Fail'},
+            { value: 'Skip', text : 'Skip'}
+        ];
+    const quickOptions = [
+            { value: 'All', text: 'All'},
+            { value: 'Golden', text: 'Golden'},
+            { value: 'Core', text : 'Core'},
+            { value: 'NonCore', text : 'NonCore'}
+        ];
+    const bugOptions = [
+            { value: 'All', text: 'All'},
+            { value: 'BugReported', text: 'Bug Reported'},
+            { value: 'BugFree', text: 'Bug Free'},
+        ];
+    const branchOptions = [
+            { value: 'ferrari', text: 'ferrari'},
+        ];
+    const buildOptions = [
+            { value: '2.1.0.215', text: '2.1.0.215'},
+            { value: '2.1.0.214', text: '2.1.0.214'},
+        ];
+
+    // let search =  '';
+    // let projectSelected = 'All';
+    // let statusSelected = 'All';
+    // let quickSelected = 'All';
+    // let bugSelected = 'All';
+    // let branchSelected = 'ferrari';
+    // let buildMinSelected = '2.1.0.214';
+    // let buildMaxSelected = '2.1.0.215';
+    // let startDateSelected = '';
+    // let endDateSelected = '';
     export default {
-        name: "FilterOptions",
         computed: {
             state () {
                 return this.startDateSelected <= this.endDateSelected ? true : false;
@@ -90,43 +143,46 @@
         },
         data() {
             return {
-                search: '',
-                projectSelected: 'All',
-                statusSelected: 'All',
-                quickSelected: 'All',
-                bugSelected: 'All',
-                branchSelected: 'ferrari',
-                buildMinSelected: '2.1.0.214',
-                buildMaxSelected: '2.1.0.215',
-                startDateSelected: '',
-                endDateSelected: '',
-                projectOptions: [
-                    { value: 'All', text: 'All'},
-                    { value: 'Ferrari', text: 'Ferrari'},
-                    { value: 'Develop', text: 'Develop'},
-                    { value: 'Evolution', text : 'Evolution'}
-                ],
-                statusOptions: [
-                    { value: 'All', text: 'All'},
-                    { value: 'Pass', text: 'Pass'},
-                    { value: 'Fail', text : 'Fail'},
-                    { value: 'Skip', text : 'Skip'}
-                ],
-                quickOptions: [
-                    { value: 'All', text: 'All'},
-                    { value: 'Golden', text: 'Golden'},
-                    { value: 'Core', text : 'Core'},
-                    { value: 'NonCore', text : 'NonCore'}
-                ], bugOptions:[
-                    { value: 'All', text: 'All'},
-                    { value: 'BugReported', text: 'Bug Reported'},
-                    { value: 'BugFree', text: 'Bug Free'},
-                ], branchOptions: [
-                    { value: 'ferrari', text: 'ferrari'},
-                ], buildOptions: [
-                    { value: '2.1.0.215', text: '2.1.0.215'},
-                    { value: '2.1.0.214', text: '2.1.0.214'},
-                ]
+                search :  '',
+                projectSelected : 'All',
+                statusSelected : 'All',
+                quickSelected : 'All',
+                bugSelected : 'All',
+                branchSelected : 'ferrari',
+                buildMinSelected : '2.1.0.214',
+                buildMaxSelected : '2.1.0.215',
+                startDateSelected : '',
+                endDateSelected : '',
+                name: "FilterOptions",
+                // filters : [
+                //     {search: ''},
+                //     {projectSelected: 'All'},
+                //     {statusSelected: 'All'},
+                //     {quickSelected: 'All'},
+                //     {bugSelected: 'All'},
+                //     {branchSelected: 'ferrari'},
+                //     {buildMinSelected: '2.1.0.214'},
+                //     {buildMaxSelected: '2.1.0.214'},
+                //     {startDateSelected: ''},
+                //     {endDateSelected: ''},
+                // ],
+                // search: '',
+                // projectSelected: 'All',
+                // statusSelected: 'All',
+                // quickSelected: 'All',
+                // bugSelected: 'All',
+                // branchSelected: 'ferrari',
+                // buildMinSelected: '2.1.0.214',
+                // buildMaxSelected: '2.1.0.215',
+                // startDateSelected: '',
+                // endDateSelected: '',
+                projectOptions: projectOptions,
+                statusOptions: statusOptions,
+                quickOptions: quickOptions,
+                bugOptions:bugOptions,
+                branchOptions: branchOptions,
+                buildOptions: buildOptions,
+
             }
         }
     }

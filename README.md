@@ -16,7 +16,7 @@ yarn global add @vue/cli
 npm install --save-dev less-loader less
 npm install bootstrap --save
 yarn add bootstrap-vue
-#yarn add moment 
+#npm install chart.js --save
 ```
 
 ### Compiles and hot-reloads for development

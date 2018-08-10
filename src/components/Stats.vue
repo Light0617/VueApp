@@ -1,32 +1,58 @@
 <template>
     <div id="Stats" class="Stats">
         <h3>Stats</h3>
-        <b-table stacked :items="stats"></b-table>
+        <b-table stacked :items="statistics"></b-table>
+        <!--<div id="canvas-holder" style="width:40%">-->
+            <!--<canvas id="chart-area"></canvas>-->
+        <!--</div>-->
     </div>
 </template>
 
 <script>
-    const stats = [{
-        "Unique Suites": 126,
-        "Passing Suites": 22,
-        "Average Score Suites": '17%',
-        "Total Tests": 807,
-        "Passing Tests": 191,
-        "Skipped Tests": 286,
-        "Failing Tests": 330,
-        'Average Score Tests': '24%',
-        "Build Range": "3.1.0.50 -3.1.0.52",
-        "Date Range": "2018/07/08 - 2018/08/08",
-        "CPU Time": '1 milliseconds'
-    }];
+    // var randomScalingFactor = function() {
+    //     return Math.round(Math.random() * 100);
+    // };
 
+    // var config = {
+    //     type: 'pie',
+    //     data: {
+    //         datasets: [{
+    //             data: [
+    //                 randomScalingFactor(),
+    //                 randomScalingFactor(),
+    //                 randomScalingFactor(),
+    //                 randomScalingFactor(),
+    //                 randomScalingFactor(),
+    //             ],
+    //             backgroundColor: [
+    //                 window.chartColors.red,
+    //                 window.chartColors.orange,
+    //                 window.chartColors.yellow,
+    //                 window.chartColors.green,
+    //                 window.chartColors.blue,
+    //             ],
+    //             label: 'Dataset 1'
+    //         }],
+    //         labels: [
+    //             'Red',
+    //             'Orange',
+    //             'Yellow',
+    //             'Green',
+    //             'Blue'
+    //         ]
+    //     },
+    //     options: {
+    //         responsive: true
+    //     }
+    // };
+    //
+    // window.onload = function() {
+    //     var ctx = document.getElementById('chart-area').getContext('2d');
+    //     window.myPie = new Chart(ctx, config);
+    // };
     export default {
         name: "Stats",
-        data () {
-            return {
-                stats: stats
-            }
-        }
+        props: ['statistics']
     }
 </script>
 
