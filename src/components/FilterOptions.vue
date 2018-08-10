@@ -1,99 +1,75 @@
 <template>
     <div id="FilterOptions" class="FilterOptions">
         <form class="form-horizontal" role="form">
-        <h2>Filter Options</h2>
+        <h3>Filter Options</h3>
 
-        <b-form-group id="searchFilter"
-                      label="Search:"
-                      label-for="searchInput"
-                      :invalid-feedback="invalidSearchInput"
+        <b-form-group id="formGroup"
+                      :invalid-feedback="invalidInput"
                       :state="state">
-            <!--ng-change="searchTyped()"/>-->
-            <b-form-input id="searchInput" :state="state" v-model.trim="search" placeholder="Enter search key"/>
-        </b-form-group>
 
-        <div>
-            <!--class="form-control" ng-change="searchTyped()"/>-->
-            <div>Project Selector: <strong>{{ projectSelected }}</strong></div>
-            <b-form-select v-model="projectSelected" :options="projectOptions" class="mb-3" />
-        </div>
+            <b-container>
+                <b-row>
+                    <b-col sm="4"><label :for="searchInput">Search:</label></b-col>
+                    <b-col sm="7"><b-form-input id="searchInput" :state="state" v-model.trim="search" placeholder="Enter search key"/></b-col>
+                </b-row>
+                <b-row>
+                    <b-col sm="4"><label>Project Selector:</label></b-col>
+                    <b-col sm="7"><b-form-select v-model="projectSelected" :options="projectOptions"/></b-col>
+                </b-row>
 
-        <div>
-            <!--<select ng-model="statusFilter" ng-options="x for x in selectionStatusOptions" class="form-control"-->
-                    <!--ng-change="searchTyped()"/>-->
-            <div>Status Filter: <strong>{{ statusSelected }}</strong></div>
-            <b-form-select v-model="statusSelected" :options="statusOptions" class="mb-3" />
-        </div>
+                <b-row>
+                    <b-col sm="4"><label>Status Selected:</label></b-col>
+                    <b-col sm="7"><b-form-select v-model="statusSelected" :options="statusOptions"/></b-col>
+                </b-row>
 
-        <div>
-            <!--<select ng-model="selectionFilter" ng-options="x for x in selectionOptions" class="form-control"-->
-                    <!--ng-change="searchTyped()"/>-->
-            <div>Quick Filter: <strong>{{ quickSelected }}</strong></div>
-            <b-form-select v-model="quickSelected" :options="quickOptions" class="mb-3" />
-        </div>
+                <b-row>
+                    <b-col sm="4"><label>Quick Selected:</label></b-col>
+                    <b-col sm="7"><b-form-select v-model="quickSelected" :options="quickOptions"/></b-col>
+                </b-row>
 
-        <div>
-            <!--<select ng-model="bugFilter" ng-options="x for x in bugOptions" class="form-control"-->
-                    <!--ng-change="searchTyped()"/>-->
-            <div>Bug Filter: <strong>{{ bugSelected }}</strong></div>
-            <b-form-select v-model="bugSelected" :options="bugOptions" class="mb-3" />
-        </div>
+                <b-row>
+                    <b-col sm="4"><label>Bug Selected:</label></b-col>
+                    <b-col sm="7"><b-form-select v-model="bugSelected" :options="bugOptions"/></b-col>
+                </b-row>
 
-        <div>
-            <!--<select ng-model="buildMinFilter" ng-options="x for x in buildRangeOptions" class="form-control"-->
-                    <!--ng-change="applyFilters()"/>-->
-            <!--<select ng-model="buildMaxFilter" ng-options="x for x in buildRangeOptions" class="form-control"-->
-                    <!--ng-change="applyFilters()"/>-->
-            <div>Build Min/Max: <strong>{{ buildMinSelected }} - {{ buildMaxSelected }}</strong></div>
-            <b-form-select v-model="buildMinSelected" :options="buildOptions" class="mb-3" />
-            <b-form-select v-model="buildMaxSelected" :options="buildOptions" class="mb-3" />
-        </div>
+                <b-row>
+                    <b-col sm="4"><label>Build Min:</label></b-col>
+                    <b-col sm="7">
+                        <b-form-select v-model="buildMinSelected" :options="buildOptions"/>
+                    </b-col>
+                </b-row>
 
-        <div>
-            <!--<select ng-model="branchFilter" ng-options="x for x in branchOptions" class="form-control"-->
-                    <!--ng-change="applyFilters()"/>-->
-            <div>Branch: <strong>{{ branchSelected }}</strong></div>
-            <b-form-select v-model="branchSelected" :options="branchOptions" class="mb-3" />
-        </div>
+                <b-row>
+                    <b-col sm="4"><label>Build Max:</label></b-col>
+                    <b-col sm="7">
+                        <b-form-select v-model="buildMaxSelected" :options="buildOptions"/>
+                    </b-col>
+                </b-row>
 
-        <!--date picker-->
-            <div>
-                <!--<datepicker></datepicker>-->
-                <!--<vue-pikaday-->
-                        <!--v-model="now"-->
-                <!--/>-->
-            </div>
-        <b-form-group>
-            <label class="control-label col-xs-4">Start:</label>
-            <div class="col-xs-8 width-date-input">
-                <div class="input-group">
-                    <input type='text' id="sd" data-date-format="MM/DD/YYYY" class="form-control width-date-input"
-                           ng-model="startDate"
-                           ng-change="searchTyped()" datepicker-popup/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                </div>
-                <div ng-show="isBefore()">
-                    Start date is later than end date.
-                </div>
-            </div>
+                <b-row>
+                    <b-col sm="4"><label>Branch:</label></b-col>
+                    <b-col sm="7"><b-form-select v-model="branchSelected" :options="branchOptions"/></b-col>
+                </b-row>
 
-        </b-form-group>
-        <b-form-group>
-            <label class="control-label col-xs-4">End:</label>
-            <div class="col-xs-8 width-date-input">
-                <div class="input-group">
-                    <input type='text' id="ed" data-date-format="MM/DD/YYYY" class="form-control width-date-input"
-                           ng-model="endDate"
-                           ng-change="searchTyped()" datepicker-popup/>
-                    <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                </div>
-            </div>
+                <b-row>
+                    <b-col sm="4"><label>Start Date:</label></b-col>
+                    <b-col sm="7"><b-form-input v-model="startDateSelected" type="date"/></b-col>
+                </b-row>
+
+                <b-row>
+                    <b-col sm="4"><label>End Date:</label></b-col>
+                    <b-col sm="7"><b-form-input v-model="endDateSelected" type="date"/></b-col>
+                </b-row>
+
+
+            </b-container>
         </b-form-group>
         </form>
+        <div>
+            <p>{{startDateSelected}}</p>
+            <p>{{endDateSelected}}</p>
+            <p>{{endDateSelected >= startDateSelected ? 'YES' : 'NO'}}</p>
+        </div>
     </div>
 </template>
 
@@ -102,15 +78,13 @@
         name: "FilterOptions",
         computed: {
             state () {
-                return this.search.length >= 0 ? true : false
+                return this.startDateSelected <= this.endDateSelected ? true : false;
             },
-            invalidSearchInput () {
-                if (this.search.length >= 0) {
+            invalidInput () {
+                if (this.startDateSelected <= this.endDateSelected) {
                     return ''
-                } else if (this.search.length > 0) {
-                    return 'Enter at least 4 characters'
                 } else {
-                    return 'Please enter something'
+                    return 'Please start date should be earlier!';
                 }
             }
         },
@@ -124,6 +98,8 @@
                 branchSelected: 'ferrari',
                 buildMinSelected: '2.1.0.214',
                 buildMaxSelected: '2.1.0.215',
+                startDateSelected: '',
+                endDateSelected: '',
                 projectOptions: [
                     { value: 'All', text: 'All'},
                     { value: 'Ferrari', text: 'Ferrari'},

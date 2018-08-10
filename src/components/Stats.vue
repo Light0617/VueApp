@@ -1,6 +1,6 @@
 <template>
     <div id="Stats" class="Stats">
-        <h2>Stats</h2>
+        <h3>Stats</h3>
         <b-table stacked :items="stats"></b-table>
     </div>
 </template>
