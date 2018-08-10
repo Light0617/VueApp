@@ -1,7 +1,5 @@
 <template>
     <div>
-        <!--<h3>{{filters.branchSelected}}</h3>-->
-        <h3>"YOY"</h3>
         <h3>{{filters}}</h3>
         <v-layout row wrap justify-space-around>
             <v-flex xs3>
@@ -61,10 +59,10 @@
         "Unique Suites": 999,
         "Passing Suites": 22,
         "Average Score Suites": '17%',
-        "Total Tests": 807,
-        "Passing Tests": 191,
-        "Skipped Tests": 286,
-        "Failing Tests": 330,
+        "TotalTests": 807,
+        "PassingTests": 191,
+        "SkippedTests": 286,
+        "FailingTests": 330,
         'Average Score Tests': '24%',
         "Build Range": "3.1.0.50 -3.1.0.52",
         "Date Range": "2018/07/08 - 2018/08/08",

@@ -16,7 +16,7 @@ yarn global add @vue/cli
 npm install --save-dev less-loader less
 npm install bootstrap --save
 yarn add bootstrap-vue
-#npm install chart.js --save
+yarn add vue-chartkick chart.js
 ```
 
 ### Compiles and hot-reloads for development
@@ -43,3 +43,4 @@ yarn run lint
 - https://vuematerial.io/getting-started
 - https://vuetifyjs.com/en/getting-started/quick-start
 - https://bootstrap-vue.js.org/docs/components/table/
+- https://stackoverflow.com/questions/40408096/whats-the-correct-way-to-pass-props-as-initial-data-in-vue-js-2
