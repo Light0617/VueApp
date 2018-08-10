@@ -9,8 +9,21 @@
 
             <b-container>
                 <b-row>
+                    <b-col sm="4"><label :for="value">value:</label></b-col>
+                    <b-col sm="7">
+                        <input
+                                type="text"
+                                :value="value"
+                                v-on="listeners"/>
+                    </b-col>
+                </b-row>
+                <b-row>
                     <b-col sm="4"><label :for="searchInput">Search:</label></b-col>
-                    <b-col sm="7"><b-form-input id="searchInput" :state="state" v-model.trim="search" placeholder="Enter search key"/></b-col>
+                    <b-col sm="7">
+                        <b-form-input id="searchInput" v-model.trim="search"
+                                      placeholder="Enter search key"/>
+                        <!--<input type="text" v-bind:value="value" v-on:input="updateValue($event.target.value)">-->
+                    </b-col>
                 </b-row>
                 <b-row>
                     <b-col sm="4"><label>Project Selector:</label></b-col>
@@ -129,6 +142,13 @@
     // let startDateSelected = '';
     // let endDateSelected = '';
     export default {
+        // props: ['search', value],
+        props: {
+            value: {
+                type: String,
+                default: ''
+            },
+        },
         computed: {
             state () {
                 return this.startDateSelected <= this.endDateSelected ? true : false;
@@ -139,10 +159,17 @@
                 } else {
                     return 'Please start date should be earlier!';
                 }
+            },
+            listeners(){
+                return {
+                    ...this.$listeners,
+                    input: event => this.$emit('input', event.target.value)
+                }
             }
         },
         data() {
             return {
+                value1: '',
                 search :  '',
                 projectSelected : 'All',
                 statusSelected : 'All',

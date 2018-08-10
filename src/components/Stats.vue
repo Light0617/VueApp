@@ -1,7 +1,7 @@
 <template>
     <div id="Stats" class="Stats">
         <h3>Stats</h3>
-        <b-table stacked :items="statistics"></b-table>
+        <b-table small stacked :items="statistics"></b-table>
         <pie-chart :data="pieData"></pie-chart>
     </div>
 </template>
