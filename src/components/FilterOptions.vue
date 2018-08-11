@@ -6,8 +6,11 @@
         <b-form-group id="formGroup"
                       :invalid-feedback="invalidInput"
                       :state="state">
-            <h3>GO</h3>
+            <h3>GO3change</h3>
             <b-container>
+                <!--<b-row>-->
+                    <!--<button v-on:click="onClickButton">TOTK</button>-->
+                <!--</b-row>-->
                 <b-row>
                     <b-col sm="4"><label :for="value">value:</label></b-col>
                     <b-col sm="7">
@@ -21,6 +24,7 @@
                     <b-col sm="4"><label :for="searchInput">Search:</label></b-col>
                     <b-col sm="7">
                         <b-form-input id="searchInput" v-model.trim="search"
+                                      @change="someHandler"
                                       placeholder="Enter search key"/>
                         <!--<input type="text" v-bind:value="value" v-on:input="updateValue($event.target.value)">-->
                     </b-col>
@@ -152,19 +156,28 @@
         computed: {
             state () {
                 return this.startDateSelected <= this.endDateSelected ? true : false;
-            },
-            invalidInput () {
+            },invalidInput () {
                 if (this.startDateSelected <= this.endDateSelected) {
                     return ''
                 } else {
                     return 'Please start date should be earlier!';
                 }
-            },
-            listeners(){
+            },listeners(){
                 return {
                     ...this.$listeners,
                     input: event => this.$emit('input', event.target.value)
                 }
+            }
+            ,someHandler() {
+                return {
+                    ...this.$listeners,
+                    input: event => this.$emit('input', event.target.value)
+                }
+            }
+        },
+        methods: {
+            onClickButton : function() {
+                this.$emit('event_child', 1)
             }
         },
         data() {

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h3>{{value}}</h3>
         <h3>{{search}}</h3>
+        <h3>target2={{target2}}</h3>
         <v-layout row wrap justify-space-around>
             <v-flex xs3>
                 <v-card>
@@ -120,12 +120,12 @@
         },
         methods: {
             updateValue () {
-                this.value = this.newData;
-                this.search = this.newData;
+                this.target2 = this.newData;
             }
         },
         data(){
             return {
+                target2:'AOAAOA',
                 value: '',
                 newData:'',
                 filteredSuites: filteredSuites,
